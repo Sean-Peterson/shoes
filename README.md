@@ -15,7 +15,7 @@ _Shor Store Database allows a user to see all of the shoe stores in the database
 
 1. _Fork and clone this repository onto your desktop from_ [gitHub](https://github.com/Sean-Peterson/shoes).
 2. Open chrome and enter localhost:8888/phpmyadmin
-3. Click on Import, Choose File, desktop/library-project/data/shoes.sql.zip
+3. Click on Import, Choose File, desktop/library-project/shoes.sql.zip
 4. Ensure [composer](https://getcomposer.org/) is installed on your computer.
 5. Navigate to the root directory of the project in which ever CLI shell you are using and run the command: `composer install`.
 6. To run tests enter `composer test` in terminal.
