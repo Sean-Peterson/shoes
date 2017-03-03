@@ -1,0 +1,23 @@
+{% extends 'index.html.twig' %}
+
+{% block header %}
+    <a href="/">home</a><br><br>
+{% endblock %}
+
+{% block content %}
+
+    {% if brands is not empty %}
+        {% for brand in brands %}
+            <li>{{brand.getBrandName}}</li>
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}
+
+{% block controls %}
+    <form action="/add/brand/{{store.getId}}" method="post">
+        <label for="new_brand">Add a new brand to the {{store.getStoreName}}</label>
+        <input type="text" name="new_brand" placeholder="new brand" required>
+        <button type="submit" name="button">Add</button>
+    </form>
+{% endblock %}
