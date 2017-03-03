@@ -11,7 +11,7 @@ crud for store
 
 many to many for stores and brands. Many stores can have brands and brands can be in many stores. Create join table for these relationships.
 
-lsit out all the brands for each store's page. let the user add brands to that store. use a join statement there.
+list out all the brands for each store's page. let the user add brands to that store. use a join statement there.
 
 once finished export the databases.
 --------------------------------------------------------------------
