@@ -18,6 +18,7 @@ class StoreTest extends PHPUnit_Framework_TestCase
     {
         Store::deleteAll();
     }
+
     function test_save_getAll()
     {
         // Arrange
@@ -34,5 +35,21 @@ class StoreTest extends PHPUnit_Framework_TestCase
         // Assert
         $this->assertEquals($result, $expected_result);
     }
+
+    function test_delete()
+    {
+        // Arrange
+        $store_name = 'payless';
+        $test_store = new Store($store_name);
+        $test_store->save();
+        //ACT
+        $test_store->delete();
+        $result = Store::getAll();
+        $expected_result = [];
+        //Assert
+        $this->assertEquals($result, $expected_result);
+    }
+
+
 }
 ?>
