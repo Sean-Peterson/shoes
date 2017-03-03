@@ -1,4 +1,6 @@
 <?php
+    require_once __DIR__."/../src/Store.php";
+
     class Brand
     {
         private $brand_name;
@@ -60,6 +62,28 @@
                 $found_brand = new Brand($brand['brand_name'], $brand['id']);
             }
             return $found_brand;
+        }
+
+        function getStores()
+        {
+            $returned_stores = $GLOBALS['DB']->query("SELECT stores.* FROM
+            brands JOIN stores_brands ON (brands.id = stores_brands.brand_id)
+            JOIN stores ON (stores_brands.store_id = stores.id)
+            WHERE brands.id = {$this->getId()};
+            ");
+            $stores = [];
+            if ($returned_stores == null)
+            {
+                return null;
+            }
+            foreach($returned_stores as $store)
+            {
+                $store_name = $store['store_name'];
+                $id = $store['id'];
+                $new_store = new Store($store_name, $id);
+                array_push($stores, $new_store);
+            }
+            return $stores;
         }
     }
  ?>

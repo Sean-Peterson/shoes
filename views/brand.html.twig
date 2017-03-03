@@ -1,0 +1,18 @@
+{% extends 'index.html.twig' %}
+
+{% block header %}
+    <a href="/">home</a><br><br>
+{% endblock %}
+
+{% block content %}
+    {% if stores is not empty %}
+        <h3>Stores that carry {{brand.getBrandName}}:</h3>
+        {% for store in stores %}
+            <li><a href="/store/{{store.getId}}">{{store.getStoreName}}</li></a>
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}
+
+{% block controls %}
+{% endblock %}

@@ -9,7 +9,7 @@
 
     {% if brands is not empty %}
         {% for brand in brands %}
-            <li><a href="/brand/{{brand.getId}}"></a> {{brand.getBrandName}}</li>
+            <li><a href="/brand/{{brand.getId}}">{{brand.getBrandName}}</li></a>
         {% endfor %}
     {% endif %}
 
@@ -17,9 +17,19 @@
 
 {% block controls %}
 <br><br>
+<label>add existing brand to {{store.getStoreName}}</label>
+<form action="/add/existing_brand/{{store.getId}}" method="post">
+    <select name="existing_brand">
+        {% for brand in all_brands %}
+            <option value="{{brand.getId}}">{{brand.getBrandName}}</option>
+        {% endfor %}
+    </select>
+    <button type="submit" name="button">add</button>
+</form>
 
-    <form action="/add/brand/{{store.getId}}" method="post">
-        <label for="new_brand">Add a new brand to the {{store.getStoreName}}</label>
+<br><br>
+    <form action="/add/new_brand/{{store.getId}}" method="post">
+        <label for="new_brand">Add a new brand to {{store.getStoreName}}</label>
         <input type="text" name="new_brand" placeholder="new brand" required>
         <button type="submit" name="button">Add</button>
     </form>
