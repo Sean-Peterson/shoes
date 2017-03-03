@@ -1,6 +1,7 @@
 {% extends 'index.html.twig' %}
 
 {% block header %}
+    <h2>{{store.getStoreName}}</h2>
     <a href="/">home</a><br><br>
 {% endblock %}
 
@@ -15,9 +16,17 @@
 {% endblock %}
 
 {% block controls %}
+<br><br>
     <form action="/add/brand/{{store.getId}}" method="post">
         <label for="new_brand">Add a new brand to the {{store.getStoreName}}</label>
         <input type="text" name="new_brand" placeholder="new brand" required>
         <button type="submit" name="button">Add</button>
+    </form>
+<br><br>
+    <form action="/patch/store/{{store.getId}}" method="post">
+        <input name="_method" type="hidden" value="patch">
+        <label for="new_store_name">Did the {{store.getStoreName}}'s name change? Help us keep up-to-date. Thanks!</label>
+        <input type="text" name="new_store_name" value="{{store.getStoreName}}" required>
+        <button type="submit" name="button">update</button>
     </form>
 {% endblock %}

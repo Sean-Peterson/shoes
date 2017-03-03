@@ -47,5 +47,11 @@
         return $app->redirect('/store/' . $id);
     });
 
+    $app->patch("/patch/store/{id}", function($id) use ($app) {
+        $store = Store::find($id);
+        $store->updateStoreName($_POST['new_store_name']);
+        return $app->redirect('/store/' . $id);
+    });
+
     return $app;
  ?>

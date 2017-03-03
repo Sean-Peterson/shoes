@@ -53,6 +53,7 @@ require_once __DIR__."/../src/Brand.php";
             $GLOBALS['DB']->exec("DELETE FROM stores WHERE id = {$this->getId()};");
         }
 
+
         static function find($id)
         {
             $find_store = $GLOBALS['DB']->query("SELECT * FROM stores WHERE id = {$id};");
@@ -62,6 +63,12 @@ require_once __DIR__."/../src/Brand.php";
                 $found_store = new Store($store['store_name'], $store['id']);
             }
             return $found_store;
+        }
+
+        function updateStoreName($update_value)
+        {
+            $GLOBALS['DB']->exec("UPDATE stores SET store_name = '{$update_value}' WHERE id = {$this->getId()};");
+            $this->store_name = $update_value;
         }
 
         function addBrand($brand_id)

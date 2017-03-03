@@ -10,8 +10,8 @@
             <h1>Shoes R Us</h1>
             {% block header %}
                 <h2>Welcome to your friendly neighborhood shoe store database</h2>
-                <h3>We have all of the local shoe stores listed here.</h3>
-                <h4>Click on a link to see the which brands the store carries! Oh, and add some if we forgot to!!! </h4>
+                <h3>We have all of the local shoe stores listed here</h3>
+                <h4>Click on a link to see the which brands the store carries! Oh, and add some if we forgot to :) </h4>
             {% endblock %}
 
             {% block content %}
@@ -26,10 +26,10 @@
 
             {% block controls %}
             <br><br>
-                <h4>Add a new store to the Shoes R Us</h4>
+                <h4>Help us keep our database up-to-date</h4>
                 <form action="/" method="post">
                     <input type="text" name="new_store" required placeholder="New Store">
-                    <button type="submit" name="button">Add</button>
+                    <button type="submit" name="button">Contibute</button>
                 </form>
             {% endblock %}
         </div>
