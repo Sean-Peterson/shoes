@@ -53,5 +53,11 @@
         return $app->redirect('/store/' . $id);
     });
 
+    $app->delete("/delete/store/{id}", function($id) use ($app) {
+        $store = Store::find($id);
+        $store->delete();
+        return $app->redirect('/');
+    });
+
     return $app;
  ?>
