@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <title>Shoes</title>
     </head>
     <body>
-        <h1>Shoes R Us</h1>
+        <div class="container">
+            <h1>Shoes R Us</h1>
+            {% block header %}
+                <h2>Welcome to your friendly neighborhood shoe store database</h2>
+                <h3>We have all of the local shoe stores listed here.</h3>
+                <h4>Click on a link to see the which brands the store carries! Oh, and add some if we forgot to!!! </h4>
+            {% endblock %}
+
+            {% block content %}
+
+                {% if stores is not empty %}
+                    {% for store in stores %}
+                        <li><a href="/store/{{store.getId}}">{{store.getStoreName}}</a></li>
+                    {% endfor %}
+                {% endif %}
+
+            {% endblock %}
+
+            {% block controls %}
+
+            {% endblock %}
+        </div>
     </body>
 </html>

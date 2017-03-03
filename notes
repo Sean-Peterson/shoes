@@ -15,3 +15,9 @@ lsit out all the brands for each store's page. let the user add brands to that s
 
 once finished export the databases.
 --------------------------------------------------------------------
+
+{% if brands is not empty %}
+    {% for brand in brands %}
+        <li><a href="/brand/{{brand.getId}}">{{brand.getBrandName}}</a></li>
+    {% endfor %}
+{% endif %}
