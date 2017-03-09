@@ -19,6 +19,18 @@ class StoreTest extends PHPUnit_Framework_TestCase
         Store::deleteAll();
     }
 
+    function test_getters()
+    {
+        // Arrange
+        $store_name = 'payless';
+        $test_store = new Store($store_name);
+        // Act
+        $result = $test_store->getStoreName();
+        $expected_result = 'payless';
+        // Assert
+        $this->assertEquals($result, $expected_result);
+    }
+
     function test_save_getAll()
     {
         // Arrange

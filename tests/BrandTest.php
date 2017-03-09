@@ -19,6 +19,19 @@ class BrandTest extends PHPUnit_Framework_TestCase
         Brand::deleteAll();
     }
 
+
+    function test_getters()
+    {
+        // Arrange
+        $brand_name = 'starburry';
+        $test_brand = new Brand($brand_name);
+        // Act
+        $result = $test_brand->getBrandName();
+        $expected_result = 'starburry';
+        // Assert
+        $this->assertEquals($result, $expected_result);
+    }
+
     function test_save_getAll()
     {
         // Arrange
