@@ -19,7 +19,7 @@ class StoreTest extends PHPUnit_Framework_TestCase
         Store::deleteAll();
     }
 
-    function test_getters()
+    function testGetters()
     {
         // Arrange
         $store_name = 'payless';
@@ -31,7 +31,7 @@ class StoreTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($result, $expected_result);
     }
 
-    function test_save_getAll()
+    function testSaveGetAll()
     {
         // Arrange
         $store_name = 'payless';
@@ -48,7 +48,7 @@ class StoreTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($result, $expected_result);
     }
 
-    function test_delete()
+    function testDelete()
     {
         // Arrange
         $store_name = 'payless';
@@ -61,7 +61,8 @@ class StoreTest extends PHPUnit_Framework_TestCase
         //Assert
         $this->assertEquals($result, $expected_result);
     }
-    function test_find()
+
+    function testFind()
     {
         // Arrange
         $store_name = 'payless';
@@ -76,6 +77,26 @@ class StoreTest extends PHPUnit_Framework_TestCase
         // Act
         $result = Store::find($test_store->getId());
         $expected_result = $test_store;
+        // Assert
+        $this->assertEquals($result, $expected_result);
+    }
+
+    function testUpdateStoreName()
+    {
+        // Arrange
+        $store_name = 'payless';
+        $id1 = 1;
+        $test_store = new Store($store_name);
+        $test_store->save();
+
+        $store_name2 = 'shoe palace';
+        $id2 = 2;
+        $test_store2 = new Store($store_name);
+        $test_store2->save();
+        // Act
+        $test_store->updateStoreName('Frederick');
+        $result = $test_store->getStoreName();
+        $expected_result = 'Frederick';
         // Assert
         $this->assertEquals($result, $expected_result);
     }

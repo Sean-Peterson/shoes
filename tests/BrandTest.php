@@ -20,7 +20,7 @@ class BrandTest extends PHPUnit_Framework_TestCase
     }
 
 
-    function test_getters()
+    function testGetters()
     {
         // Arrange
         $brand_name = 'starburry';
@@ -32,7 +32,7 @@ class BrandTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($result, $expected_result);
     }
 
-    function test_save_getAll()
+    function testSaveGetAll()
     {
         // Arrange
         $brand_name = 'starburry';
@@ -49,7 +49,7 @@ class BrandTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($result, $expected_result);
     }
 
-    function test_delete()
+    function testDelete()
     {
         // Arrange
         $brand_name = 'starburry';
@@ -62,7 +62,8 @@ class BrandTest extends PHPUnit_Framework_TestCase
         //Assert
         $this->assertEquals($result, $expected_result);
     }
-    function test_find()
+
+    function testFind()
     {
         // Arrange
         $brand_name = 'starburry';
@@ -80,6 +81,7 @@ class BrandTest extends PHPUnit_Framework_TestCase
         // Assert
         $this->assertEquals($result, $expected_result);
     }
+
 
 
 }
